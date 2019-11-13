@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>ebook微服务学习笔记</title>
+      <link href="/2019/11/12/ebook%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"/>
+      <url>/2019/11/12/ebook%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</url>
+      
+        <content type="html"><![CDATA[<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>这里是构建基于微服务的ebook的一些记录。将会继续更新</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol><li><p><a href="https://www.bilibili.com/video/av74750602?p=46" target="_blank" rel="noopener">黑马乐优项目12月视频合集</a>：[45]搭建聚合工程及注册中心,[46]搭建聚合工程及注册中心,[47]添加路由规则,[56-73]vue学习,[76]运行后台管理前端工程,[77]同一环境,[78]域名访问项目,[79]nginx</p></li><li><p><a href="https://www.bilibili.com/video/av29882762?p=4" target="_blank" rel="noopener">千锋教育iToken视频合集</a>：敏捷开发、XP、部署持续集成、nginx反向代理</p></li></ol><h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p>才发现居然没有用Docker。。。</p><p><img alt="乐优架构图" data-src="https://wx3.sinaimg.cn/mw690/007CtYmwgy1g8vqesx7l2j30pt0smdjz.jpg" class="lazyload"></p><h2 id="概念理解"><a href="#概念理解" class="headerlink" title="概念理解"></a>概念理解</h2><h4 id="nginx-千锋iToken笔记"><a href="#nginx-千锋iToken笔记" class="headerlink" title="nginx(千锋iToken笔记)"></a>nginx(千锋iToken笔记)</h4><p>nginx像一个伪CDN，功能有：</p><ol><li>服务器：要通过浏览器请求，就必须有一个服务器比如tomcat。tomcat既是一个服务器也是一个servler容器，但nginx就是一个静态服务器</li><li>虚拟主机：一个服务器上虚拟出多个网站，例如个人网站使用的虚拟主机，tomcat也有这个功能，多配几个host就多了几个虚拟主机</li><li>反向代理、负载均衡：多并发时，需要多台服务器集群时可以用nginx时可以用它反向代理，且可以使得多台服务器平均分担负载</li></ol><h2 id="开发填坑"><a href="#开发填坑" class="headerlink" title="开发填坑"></a>开发填坑</h2><h4 id="sudo-nginx报错"><a href="#sudo-nginx报错" class="headerlink" title="sudo nginx报错"></a>sudo nginx报错</h4><p>原因是8080端口被占用。报错如图所示：<br><img alt data-src="https://wx4.sinaimg.cn/mw690/007CtYmwgy1g8vqe6vq2zj30vi04040g.jpg" class="lazyload"></p><p>解决方法如下：</p><ul><li><p>8080端口被占用，根据进程PID(38871)关闭进程</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">kill</span> -9 38871</span><br></pre></td></tr></table></figure></li><li><p>重新启动nginx：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nginx -c /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure></li><li><p>浏览器中打开 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></p></li></ul><h2 id="进度"><a href="#进度" class="headerlink" title="进度"></a>进度</h2><p>接下来要实现用nginx管理zuul网关，后台api赶快连一下。</p><h2 id="随笔记录"><a href="#随笔记录" class="headerlink" title="随笔记录"></a>随笔记录</h2><p>上传了一下项目到github上，收到了24封dependabot邮件,有空看一下</p><p>乐优是通过更改host为leyou.com来实现伪域名的，目前停在了这里。</p><p>nginx的作用是用来管理zuul网关，用于实现高可用性。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开发备忘录</title>
+      <link href="/2019/11/12/%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+      <url>/2019/11/12/%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><h3 id="git与github"><a href="#git与github" class="headerlink" title="git与github"></a>git与github</h3><p>参考视频：<a href="https://www.bilibili.com/video/av55780016?p=3" target="_blank" rel="noopener">bilibili：1小时玩转 Git/Github</a></p><h4 id="保存到远程仓库"><a href="#保存到远程仓库" class="headerlink" title="保存到远程仓库"></a>保存到远程仓库</h4><ol><li>新建一个仓库后，在电脑创建一个空文件[如/code]，然后cd到该文件，终端里输入, <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> code</span><br><span class="line">$ git <span class="built_in">clone</span> &lt;&lt;iwork项目的SSH或HTTPS&gt;&gt;</span><br></pre></td></tr></table></figure></li><li>cd到[/code/iwork]下，输入sudo git status查看状态<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> iwork</span><br></pre></td></tr></table></figure></li><li>在本地文件夹里增加文件，然后输入sudo git add &lt;文件名.md&gt;或sudo git add .此时文件保存到git的index中，但是还没有同步到远程上。此时sudo git status查看一下状态，会发现新文件但没有commit。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git add .</span><br></pre></td></tr></table></figure></li><li>输入sudo git commit  -m “the message you want when commit”，可以sudo git status查看一下状态，文件已经commit <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>输入 git push 后github上远程可见 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure></li></ol><h3 id="Mac查看IP地址和MAC"><a href="#Mac查看IP地址和MAC" class="headerlink" title="Mac查看IP地址和MAC"></a>Mac查看IP地址和MAC</h3><ol><li>终端输入ifconfig然后回车   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>其中“eth0”表示以太网网卡，“lo0”表示环回地址。下图的以太网网卡IP地址是“192.168.239.141”，MAC地址是38:0c:29:26:bc:07”</li></ol><p><img alt data-src="/Users/hamster/Desktop/Life/github/iBlog/iBlog/source/_posts/images/20191113_1.jpg" class="lazyload"></p><h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><h4 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> debug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基于Butterfly的建站日志</title>
+      <link href="/2019/11/10/%E5%9F%BA%E4%BA%8EButterfly%E7%9A%84%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/"/>
+      <url>/2019/11/10/%E5%9F%BA%E4%BA%8EButterfly%E7%9A%84%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Butterfly文档配置"><a href="#Butterfly文档配置" class="headerlink" title="Butterfly文档配置"></a>Butterfly文档配置</h3><h4 id="1-主页文章节选"><a href="#1-主页文章节选" class="headerlink" title="1.主页文章节选"></a>1.主页文章节选</h4><p>主页文章节选只支持自动节选和文章页description两种，此处设置为文章页description，关闭了自动节选，因为文字和代码块等的显示可能因此导致不正常。以后写文档时注意⚠️。</p><h4 id="2-文章版权"><a href="#2-文章版权" class="headerlink" title="2.文章版权"></a>2.文章版权</h4><p>记得有空设置一下，然后写文章之前看一下文档的3.7-3.11</p><p>link:  <a href="https://jerryc.me/posts/21cfbf15/#文章相關項" target="_blank" rel="noopener">Butterfly文档</a></p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">post_copyright:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  license: CC BY-NC-SA 4.0</span><br><span class="line">  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/</span><br></pre></td></tr></table></figure><h4 id="4-post的mg"><a href="#4-post的mg" class="headerlink" title="4.post的mg"></a>4.post的mg</h4><p>在markdown中通过微博相册存储文章top_img和cover_img，本来想github的但是加载有点慢</p><h4 id="5-配置文档"><a href="#5-配置文档" class="headerlink" title="5.配置文档"></a>5.配置文档</h4><p>配置参考dalao的文档：<a href="https://jerryc.me/posts/21cfbf15/#文章封面" target="_blank" rel="noopener">Butterfly文档</a></p><h4 id="6-note的example效果预览"><a href="#6-note的example效果预览" class="headerlink" title="6.note的example效果预览"></a>6.note的example效果预览</h4><p><a href="https://theme-next.org/docs/tag-plugins/note" target="_blank" rel="noopener">点击这里查看note官方文档</a></p><div class="note ">            <h4 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h4><p>(without define class style)</p>          </div><div class="note default">            <h4 id="Default-Header"><a href="#Default-Header" class="headerlink" title="Default Header"></a>Default Header</h4><p>Welcome to <a href="https://hexo.io" target="_blank" rel="noopener">Hexo!</a></p>          </div><div class="note primary">            <h4 id="Primary-Header"><a href="#Primary-Header" class="headerlink" title="Primary Header"></a>Primary Header</h4><p><strong>Welcome</strong> to <a href="https://hexo.io" target="_blank" rel="noopener">Hexo!</a></p>          </div><div class="note info">            <h3 id="Info-Header"><a href="#Info-Header" class="headerlink" title="Info Header"></a>Info Header</h3><p><strong>Welcome</strong> to <a href="https://hexo.io" target="_blank" rel="noopener">Hexo!</a></p>          </div><div class="note success">            <h4 id="Success-Header"><a href="#Success-Header" class="headerlink" title="Success Header"></a>Success Header</h4><p><strong>Welcome</strong> to <a href="https://hexo.io" target="_blank" rel="noopener">Hexo!</a></p>          </div><div class="note warning">            <h4 id="Warning-Header"><a href="#Warning-Header" class="headerlink" title="Warning Header"></a>Warning Header</h4><p><strong>Welcome</strong> to <a href="https://hexo.io" target="_blank" rel="noopener">Hexo!</a></p>          </div><div class="note danger">            <h4 id="Danger-Header"><a href="#Danger-Header" class="headerlink" title="Danger Header"></a>Danger Header</h4><p><strong>Welcome</strong> to <a href="https://hexo.io" target="_blank" rel="noopener">Hexo!</a></p>          </div><div class="note info no-icon">            <h4 id="No-icon-note"><a href="#No-icon-note" class="headerlink" title="No icon note"></a>No icon note</h4><p>Note <strong>without</strong> icon: <code>note info no-icon</code></p><p>note info, note info, note info<br>note info, note info, note info<br>note info, note info, note info</p>          </div><div class="note success">            <h4 id="Codeblock-in-note"><a href="#Codeblock-in-note" class="headerlink" title="Codeblock in note"></a>Codeblock in note</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br></pre></td></tr></table></figure>          </div><div class="note default">            <h4 id="Lists-in-note"><a href="#Lists-in-note" class="headerlink" title="Lists in note"></a>Lists in note</h4><ul><li>ul</li><li>ul<ul><li>ul</li><li>ul</li></ul></li><li>ul</li></ul><ol><li>ol</li><li>ol<ol><li>ol</li><li>ol</li></ol></li><li>ol</li></ol>          </div><h4 id="Table-in-Note"><a href="#Table-in-Note" class="headerlink" title="Table in Note"></a>Table in Note</h4><div class="note default">            <table><thead><tr><th>1</th><th>2</th></tr></thead><tbody><tr><td>3</td><td>4</td></tr><tr><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td></tr></tbody></table>          </div><h4 id="7-gallery相册的效果预览"><a href="#7-gallery相册的效果预览" class="headerlink" title="7.gallery相册的效果预览"></a>7.gallery相册的效果预览</h4><div class="justified-gallery"><p><img alt data-src="https://gratisography.com/wp-content/uploads/2019/10/gratisography-scary-pumpkin-hand-900x600.jpg" class="lazyload"><br><img alt data-src="https://gratisography.com/wp-content/uploads/2019/10/gratisography-fresh-fish-dinner-900x600.jpg" class="lazyload"><br><img alt data-src="https://gratisography.com/wp-content/uploads/2019/10/gratisography-mountain-cloud-landscape-900x600.jpg" class="lazyload"><br><img alt data-src="https://picjumbo.com/wp-content/uploads/iphone-free-stock-photos-2210x3315.jpg" class="lazyload"><br><img alt data-src="https://picjumbo.com/wp-content/uploads/young-millennial-girl-drinking-lemonade-and-overlooking-the-city-2210x1473.jpg" class="lazyload"><br><img alt data-src="https://picjumbo.com/wp-content/uploads/modern-graphic-designer-essentials_free_stock_photos_picjumbo_HNCK4919-2210x1474.jpg" class="lazyload"></p>          </div><h4 id="8-文章置顶"><a href="#8-文章置顶" class="headerlink" title="8.文章置顶"></a>8.文章置顶</h4><p>在想要置顶的markdown的文章的title中加一个属性：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: xxxx</span><br><span class="line">tags:</span><br><span class="line">  - xxx</span><br><span class="line">date: 2018-08-08 08:08:08</span><br><span class="line">top: <span class="literal">true</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure><h4 id="3-29-32都弄完了"><a href="#3-29-32都弄完了" class="headerlink" title="3.29-32都弄完了"></a>3.29-32都弄完了</h4><h4 id="3-29-32都弄完了-1"><a href="#3-29-32都弄完了-1" class="headerlink" title="3.29-32都弄完了"></a>3.29-32都弄完了</h4><p>出现一个很奇怪的bug，运行hexo clean &amp; hexo g后public下的index.html就消失了，目前不知道哪里出了问题只能手动添加一下index.html再hexo s了</p><p>又看了一下，hexo clean的时候会删除整个public文件夹，hexo g的时候又会重新生成，但是没有index.html了,也不报错。。。</p><p>啊我个傻子，原因是配置文章置顶功能的时候，要先npm uninstall hexo-generator-index –save 然后 npm install hexo-generator-index-pin-top –save。<br>我只做了第一步。。。。。。。</p><p>个傻子，学会了认真看文档+版本管理QAQ</p><h4 id="8-先咕着"><a href="#8-先咕着" class="headerlink" title="8.先咕着"></a>8.先咕着</h4><h4 id="9-其他"><a href="#9-其他" class="headerlink" title="9.其他"></a>9.其他</h4><p>看着ffgg的加了一只狗狗，我们姑且叫他小咕</p><p>ffgg的加密不能用，会与目录冲突，先放着</p><p>评论不能加，蹲一波dalao的回复。找到一篇博主的文章，但还是失败了<br><a href="https://blog.csdn.net/weixin_30721077/article/details/96266356" target="_blank" rel="noopener">【Valine评论设置——基于next】</a></p><h4 id="10-分享"><a href="#10-分享" class="headerlink" title="10.分享"></a>10.分享</h4><p>分享弄完了，push一下</p><h4 id="11-改进"><a href="#11-改进" class="headerlink" title="11.改进"></a>11.改进</h4><p>1.这个Sakura主题的blog好好看！！！！<br><a href="https://yremp.live/hexo-sakura/" target="_blank" rel="noopener">Sakura</a></p><p>喜欢鼠标、喜欢返回顶部和里面的代码！要是能八一八就好惹～</p><p>2.配置文件的<br>选择<a href="https://github.com/xCss/Valine" target="_blank" rel="noopener">【Valine】</a>作为评论服务商。<br>注册完了但是失败。。。有空再调一下吧</p><p>搜索的Algolia没有弄，网站验证下次再说,不想搞，不想被发现QAQ<br>footer背景没弄,因为没找到合适的<br>PWA失败，再说吧</p><p>3.加一下音视频<br>加密继续，参考ffgg的配置，多看看别人的blog</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日志 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 建站日志 Butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>DB2学习日志</title>
+      <link href="/2019/11/10/DB2%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+      <url>/2019/11/10/DB2%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/</url>
+      
+        <content type="html"><![CDATA[<p>有空记得从CSDN中导入一下</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习日志 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习日志 DB2笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>优秀的工具、资源等</title>
+      <link href="/2019/11/10/%E4%BC%98%E7%A7%80%E7%9A%84%E5%B7%A5%E5%85%B7%E3%80%81%E8%B5%84%E6%BA%90%E7%AD%89/"/>
+      <url>/2019/11/10/%E4%BC%98%E7%A7%80%E7%9A%84%E5%B7%A5%E5%85%B7%E3%80%81%E8%B5%84%E6%BA%90%E7%AD%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p>如果是Mac的话强烈推荐一下</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>优秀的工具、资源等</title>
+      <link href="/2019/11/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2019/11/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p>如果是Mac的话强烈推荐一下</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown手册</title>
+      <link href="/2019/11/10/markdown%E6%89%8B%E5%86%8C/"/>
+      <url>/2019/11/10/markdown%E6%89%8B%E5%86%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="git与github版本管理"><a href="#git与github版本管理" class="headerlink" title="git与github版本管理"></a>git与github版本管理</h3><ul><li><input checked="" disabled="" type="checkbox"> P45 搭建聚合工程及注册中心</li><li><input checked="" disabled="" type="checkbox"> P46 搭建网关微服务及common工程</li><li><input checked="" disabled="" type="checkbox"> P47 添加路由规则</li><li><input disabled="" type="checkbox"> P48 56-73 vue学习</li><li><input checked="" disabled="" type="checkbox"> P76 运行后台管理前端工程<br>￼</li><li><input checked="" disabled="" type="checkbox"> P77 同一环境</li><li><input checked="" disabled="" type="checkbox"> P78 域名访问项目</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 手册 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 手册 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
