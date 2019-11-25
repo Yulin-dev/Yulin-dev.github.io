@@ -129,31 +129,6 @@
     
     
     <entry>
-      <title>优秀的工具、资源等</title>
-      <link href="/2019/11/10/%E4%BC%98%E7%A7%80%E7%9A%84%E5%B7%A5%E5%85%B7%E3%80%81%E8%B5%84%E6%BA%90%E7%AD%89/"/>
-      <url>/2019/11/10/%E4%BC%98%E7%A7%80%E7%9A%84%E5%B7%A5%E5%85%B7%E3%80%81%E8%B5%84%E6%BA%90%E7%AD%89/</url>
-      
-        <content type="html"><![CDATA[<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p>如果是Mac的话强烈推荐一下</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 记录 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 记录 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Markdown手册</title>
       <link href="/2019/11/10/markdown%E6%89%8B%E5%86%8C/"/>
       <url>/2019/11/10/markdown%E6%89%8B%E5%86%8C/</url>
@@ -171,6 +146,31 @@
         <tags>
             
             <tag> 手册 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>编译原理学习笔记</title>
+      <link href="/2019/11/10/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2019/11/10/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>11.07</p></blockquote><p>1.概念：算符(要相邻)，素短语，算符优先关系</p><p>2.例题：书本P89<br>3.判断是否为算法优先文法，算符之间只能有一个关系<br>4.算符优先关系表<br>5.FIRSTVT和LASTVT，可以用来构造优先关系表<br>6.PPT41页例题和书本P91笔记<br>7.根据PPT41写出PPT44例题<br>8.PPT46的素短语和最左素短语<br>9.PPT47的规约过程<br>10.PPT51页例题<br>11.规约准确率高，算符优先法速度快</p><blockquote><p>11.14<br>一、复习<br>1.规约：找句柄<br>2.算符优先文法：找最左素短语，i直接返回为最顶端的N，有算符才能规约，否则都是占位符，一定要包含算符。速度快但有时不准确，前提是符合算符优先文法才能用。很多都不适用<br>3.另一种：LR分析法</p></blockquote><p>二、LR分析法：<br>1.从左到右扫描符号串，用最左规约，最右推导。能解决大部分语法规则，但二义文法，需要处理才能用。<br>2.LR(1)分析表，算FIRST和FELLOW，有多个候选式。而LR分析法我们用的是LR分析法，有很多能自动构造LR分析表。<br>3.课本P101例题，状态栈和符号栈，遇到s5:状态转为5，移入i，指针后移；r2：用(2)表达式进行规约右侧符号，消除此时状态，写入规约后符号，查询Goto表更新状态。栈顶的状态显示了分析的历史信息/进度。<br>4.根据有限状态自动机DFA，LR(0)item组成的集合</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
             
         </tags>
       
@@ -204,23 +204,23 @@
     
     
     <entry>
-      <title>编译原理学习笔记</title>
-      <link href="/2019/11/10/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>/2019/11/10/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <title>优秀的工具、资源等</title>
+      <link href="/2019/11/10/%E4%BC%98%E7%A7%80%E7%9A%84%E5%B7%A5%E5%85%B7%E3%80%81%E8%B5%84%E6%BA%90%E7%AD%89/"/>
+      <url>/2019/11/10/%E4%BC%98%E7%A7%80%E7%9A%84%E5%B7%A5%E5%85%B7%E3%80%81%E8%B5%84%E6%BA%90%E7%AD%89/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>11.07</p></blockquote><p>1.概念：算符(要相邻)，素短语，算符优先关系</p><p>2.例题：书本P89<br>3.判断是否为算法优先文法，算符之间只能有一个关系<br>4.算符优先关系表<br>5.FIRSTVT和LASTVT，可以用来构造优先关系表<br>6.PPT41页例题和书本P91笔记<br>7.根据PPT41写出PPT44例题<br>8.PPT46的素短语和最左素短语<br>9.PPT47的规约过程<br>10.PPT51页例题<br>11.规约准确率高，算符优先法速度快</p><blockquote><p>11.14<br>一、复习<br>1.规约：找句柄<br>2.算符优先文法：找最左素短语，i直接返回为最顶端的N，有算符才能规约，否则都是占位符，一定要包含算符。速度快但有时不准确，前提是符合算符优先文法才能用。很多都不适用<br>3.另一种：LR分析法</p></blockquote><p>二、LR分析法：<br>1.从左到右扫描符号串，用最左规约，最右推导。能解决大部分语法规则，但二义文法，需要处理才能用。<br>2.LR(1)分析表，算FIRST和FELLOW，有多个候选式。而LR分析法我们用的是LR分析法，有很多能自动构造LR分析表。<br>3.课本P101例题，状态栈和符号栈，遇到s5:状态转为5，移入i，指针后移；r2：用(2)表达式进行规约右侧符号，消除此时状态，写入规约后符号，查询Goto表更新状态。栈顶的状态显示了分析的历史信息/进度。<br>4.根据有限状态自动机DFA，LR(0)item组成的集合</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p>如果是Mac的话强烈推荐一下</p>]]></content>
       
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> 记录 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 学习笔记 </tag>
+            <tag> 记录 </tag>
             
         </tags>
       
