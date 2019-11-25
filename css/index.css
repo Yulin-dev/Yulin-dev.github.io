@@ -4544,6 +4544,94 @@ img:hover {
 #rightside #rightside-config-hide {
   display: none;
 }
+#rightside #go-up {
+  right: 60px;
+  width: 70px;
+  height: 900px;
+  top: -900px;
+  bottom: unset;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  overflow: visible;
+}
+#rightside #readmode,
+#rightside #font_plus,
+#rightside #font_minus,
+#rightside #to_comment,
+#rightside .darkmode,
+#rightside #mobile-toc-button,
+#rightside #rightside_config {
+  width: 30px;
+  height: 30px;
+  background-color: #49b1f5;
+  color: #fff;
+  text-align: center;
+  line-height: 29px;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+#rightside #readmode:hover,
+#rightside #font_plus:hover,
+#rightside #font_minus:hover,
+#rightside #to_comment:hover,
+#rightside .darkmode:hover,
+#rightside #mobile-toc-button:hover,
+#rightside #rightside_config:hover {
+  background-color: #ff7242;
+}
+#rightside #rightside_config i {
+  -webkit-animation: avatar_turn_around 2s linear infinite;
+  -moz-animation: avatar_turn_around 2s linear infinite;
+  -o-animation: avatar_turn_around 2s linear infinite;
+  -ms-animation: avatar_turn_around 2s linear infinite;
+  animation: avatar_turn_around 2s linear infinite;
+}
+#rightside .translate_chn_to_cht {
+  width: 30px;
+  height: 30px;
+  background-color: #49b1f5;
+  color: #fff;
+  text-align: center;
+  line-height: 29px;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+#rightside .translate_chn_to_cht:hover {
+  background-color: #ff7242;
+}
+#rightside #mobile-toc-button {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  #rightside #mobile-toc-button {
+    display: block;
+  }
+}
+#rightside {
+  right: -38px;
+  position: fixed;
+  bottom: 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+#rightside #rightside-config-hide {
+  display: none;
+}
 #rightside #readmode,
 #rightside #font_plus,
 #rightside #font_minus,
