@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>开发备忘录</title>
+      <link href="/2019/11/26/DB2/"/>
+      <url>/2019/11/26/DB2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DB2基本使用"><a href="#DB2基本使用" class="headerlink" title="DB2基本使用"></a>DB2基本使用</h1><h1 id="DB2常用命令"><a href="#DB2常用命令" class="headerlink" title="DB2常用命令"></a>DB2常用命令</h1><h1 id="DB2管理电子书，实验三-十"><a href="#DB2管理电子书，实验三-十" class="headerlink" title="DB2管理电子书，实验三-十"></a>DB2管理电子书，实验三-十</h1><h2 id="Unit-3"><a href="#Unit-3" class="headerlink" title="Unit 3"></a>Unit 3</h2><blockquote><p>实验原理介绍</p></blockquote><h3 id="Task-1"><a href="#Task-1" class="headerlink" title="Task 1"></a>Task 1</h3><h3 id="Task-2"><a href="#Task-2" class="headerlink" title="Task 2"></a>Task 2</h3><p>参考链接：<a href="https://www.tutorialspoint.com/db2/index.htm" target="_blank" rel="noopener">DB2英文教程</a></p><h1 id="DB2y应用开发"><a href="#DB2y应用开发" class="headerlink" title="DB2y应用开发"></a>DB2y应用开发</h1><h1 id="期末小论文"><a href="#期末小论文" class="headerlink" title="期末小论文"></a>期末小论文</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DB2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络实验报告</title>
+      <link href="/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="异步串行传输实验"><a href="#异步串行传输实验" class="headerlink" title="异步串行传输实验"></a>异步串行传输实验</h1><table><thead><tr><th align="center">课程名称</th><th align="center">姓名</th><th align="center">学号</th><th align="center">专业</th><th align="center">实验名称</th><th align="center">实验日期</th></tr></thead><tbody><tr><td align="center">计算机网络实验</td><td align="center">黄钰琳</td><td align="center">1751720</td><td align="center">软件工程</td><td align="center">异步串行实验</td><td align="center">2019-10-30</td></tr></tbody></table><h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>本实验是有关OSI模型物理层的实验，通过串⼝的字符收发，加深对通信基本原理的理解。</p><ol><li><p>理解通信基本原理；</p></li><li><p>理解异步串⾏传输的基本概念；</p></li><li><p>了解掌握RS－232接⼝标准以及RS-232帧格式；</p></li><li><p>了解通信双⽅参数匹配是正常通信的基本保证，了解波特率等主要通信参数含义。</p></li></ol><h2 id="实验设备"><a href="#实验设备" class="headerlink" title="实验设备"></a>实验设备</h2><ol><li>两台带COM口的计算机[？型号]</li><li>⼀根串⾏交叉线</li></ol><h2 id="实验网络拓扑"><a href="#实验网络拓扑" class="headerlink" title="实验网络拓扑"></a>实验网络拓扑</h2><p><img alt="image-20191126185241335" data-src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9bn043xicj30te05w3ym.jpg" class="lazyload"></p><p>​    异步串行通信实验拓扑结构如上图所示，实验环境主要由两台带COM口的计算机和一根串行交叉线组成。将单根串行交叉线将两个计算机的COM串口对接起来；两台计算机超级终端将作为路由器管理的操作平台。</p><h2 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h2><blockquote><p>一、异步串行通信原理</p></blockquote><ol><li><p>串行方式：任何通信用户单独只能占用一条通信线路。</p></li><li><p>串行传输：串行传输结构示意图如下图所示，每次只能传输一个数位，0或1。</p><p><img alt="img" data-src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9bnchjolaj305o041web.jpg" class="lazyload"></p></li><li><p>串行通信：在数据通信中，将传送的每个字符的二进制代码按照顺序依次发送的方式称为串行通信。串行通信方式广泛应用在远程通信中。</p></li><li><p>串行传输模式在实际运用中，又分为同步传输模式和异步传输模式。</p><ul><li><p>同步传输模式：要求通信的收发双方在时间基准上保持一致。</p></li><li><p>异步传输模式：接发两端使用不固定的时间模式，传输前也不需要协调，只要直接发送，不需要对方作为应答，但必须在传输两个数据包之间加入间隔符号，作为分隔。</p></li></ul></li><li><p>常用的串行通信接口标准包括RS-232、RS-449、V.24、V.35等。其中，RS-232是最常用的串行通信标准之一。</p></li></ol><blockquote><p>二、RS232接口</p></blockquote><ol><li>RS232接口是1970年由美国电子工业协会（EIA）联合贝尔系统、调制解调器厂家及计算机终端生产厂家共同制定的用于串行通讯的标准。</li><li>主要内容：定义数据终端设备DTE（data terminal equipment）和数据通信设备DCE（data circuit equipment）之间的接口标准。</li><li>RS-232传输对象是字符，每次传输一个字符，计算机内部所有的数据都使用二进制，需要规定二进制数字表示哪个符号，称编码标准，现在我们字符使用的标准是ASCII编码。</li></ol><blockquote><p>三、ASCII码表</p></blockquote><ol><li>ASCII(American Standard Code for Information Interchange)，美国信息交换标准代码,是基于拉丁字母的一套电脑编码系统，主要用于显示现代英语和其他西欧语言，使用一个字（byte）来表示英语字母，比如，字母a,十进制编码值是97，二进制是0110 0001，一般用十六进制来表示，0x61，0x是16进制的前缀，ASCII编码详见附件。</li></ol><blockquote><p>四、S232数据桢格式</p></blockquote><ol><li><p>RS232在传输一个字符时，将字符转换成ASCII码，并组织成RS232数据桢进行传输</p></li><li><p>RS232数据桢格式：</p><ul><li>起始位为0，以一位低电平开始，表示发送端开始发送一帧数据；</li><li>数据位，字符的ASCII码，一般低位在前，高位在后，数据位长度一般为8位；</li><li>校验位，用于校验数据的正确性，使用奇校验或者偶校验；</li><li>停止位为1，一帧信息已经发送完毕，长度一般为1~2位；</li><li>空闲位：空闲位也为1，用于通知接受端等待下一个数据帧的传输；一旦开始传输下一个字符，发出新的开始位。</li><li>RS232数据桢格式如下图所示：</li></ul><p><img alt="image-20191126192641093" data-src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9bnzhpqplj30qa034ta0.jpg" class="lazyload"></p></li></ol><blockquote><p>五、波特率</p></blockquote><ol><li><strong>波特率</strong>：也称调制速率，指<u>单位时间内通信信号变化的次数</u>，它同时间模式中的时间间隔长度刚好成反比关系。</li><li>波特率决定着每个数位的传输速率，显然，涉及到接发两端的两个设备配置，为保证两者在发送信号和检测信号时的时间同步，就必须设置成相同的波特率。</li><li>发送设备和接收设备采用相同波特率称之为<u>波特率匹配</u>。如果接发双方baud rate波特率不匹配就会发生错误, 称之为<u>帧错误</u>。</li></ol><h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><blockquote><p>一、实验概述</p></blockquote><p>使用超级终端进行两台计算机之间的串行通信，一端从键盘输入字符发送，另一端观看接收到的内容。主要实验内容：</p><ol><li><p>测试相同通信参数下的通信，进行相互间的字符接发送；</p></li><li><p>测试不同波特率条件下的通信，其他参数保持相同，进行相互间的字符接发送；通过相互传输字符，来检测通信参数的匹配。</p></li></ol><blockquote><p>二、实验步骤</p></blockquote><p>【准备过程】</p><ol><li>按照实验拓扑结构要求将两台计算机的COM口用串口反接连接线连接起来。  </li><li>Host1：运行超级终端，建⽴串⼝通信连接test1，设置缺省通信参数。  </li><li>Host2：运行超级终端，建⽴串⼝通信连接test2，设置缺省通信参数。  </li></ol><p>【实验一】：测试在相同通信参数下的字符传输</p><ol><li><p>Host2的超级终端输⼊如下内容，此时Host2超级终端无内容显示</p><figure class="highlight vb"><table><tr><td class="code"><pre><span class="line">hhh2</span><br></pre></td></tr></table></figure></li><li><p>Host1的超级终端接收到如下字符串</p><figure class="highlight vb"><table><tr><td class="code"><pre><span class="line">hhh2</span><br></pre></td></tr></table></figure></li></ol><p>【实验二】：测试采用不同波特率下的字符传输  </p><ol><li><p>Host1和Host2均断开连接，在“文件-&gt;属性-&gt;配置”中修改参数如下：</p><table><thead><tr><th align="center">连接名</th><th align="center">波特率</th><th align="center">数据位</th><th align="center">奇偶校验</th><th align="center">停止位</th></tr></thead><tbody><tr><td align="center">test1</td><td align="center">4800</td><td align="center">8</td><td align="center">奇校验</td><td align="center">1</td></tr><tr><td align="center">test2</td><td align="center">9600</td><td align="center">8</td><td align="center">奇校验</td><td align="center">1</td></tr></tbody></table></li><li><p>进行通信测试。首先在Host1终端从键盘键入以下字符串，Host1屏幕上并不会显示输入内容，Host2屏幕上显示乱码。</p><figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="number">12</span> <span class="number">35</span> <span class="number">46</span> <span class="number">77</span></span><br></pre></td></tr></table></figure></li><li><p>在Host2终端从键盘键入以下字符串，Host2屏幕上并不会显示输入内容，Host1屏幕上显示不同乱码。</p><figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="number">12</span> <span class="number">35</span> <span class="number">46</span> <span class="number">77</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="实验问题与结果分析"><a href="#实验问题与结果分析" class="headerlink" title="实验问题与结果分析"></a>实验问题与结果分析</h2><ol><li><p>实验1中，两台计算机的通信参数相同，波特率匹配，不会发⽣帧错误，因此字符传输正常。</p></li><li><p>实验2中，两台计算机的波特率不同，则它们单位时间内通信信号发⽣变化的次数不同，相应的检测信号的间隔也不一致，因此两台计算机显示出乱码且乱码值不同。</p></li><li><p>这个实验比较简单，是后面实验的基础。通过动手操作串⼝的字符接收和发送，加深了对通信基本原理的理解。在理解通信基本原理和异步串⾏传输的基础上，进一步掌握RS－232接⼝标准以及RS-232帧格式，通过实验一和实验二的具体操作切实理解了通信双⽅参数匹配是正常通信的基本保证，明白了波特率等主要通信参数含义。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络实验报告 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据库</title>
       <link href="/2019/11/25/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
       <url>/2019/11/25/%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
@@ -71,31 +121,6 @@
         <tags>
             
             <tag> 学习笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>开发备忘录</title>
-      <link href="/2019/11/12/DB2/"/>
-      <url>/2019/11/12/DB2/</url>
-      
-        <content type="html"><![CDATA[<p>[TOC]</p><h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><h3 id="git与github"><a href="#git与github" class="headerlink" title="git与github"></a>git与github</h3><p>参考视频：<a href="https://www.bilibili.com/video/av55780016?p=3" target="_blank" rel="noopener">bilibili：1小时玩转 Git/Github</a></p><h4 id="保存到远程仓库"><a href="#保存到远程仓库" class="headerlink" title="保存到远程仓库"></a>保存到远程仓库</h4><ol><li>新建一个仓库后，在电脑创建一个空文件[如/code]，然后cd到该文件，终端里输入, <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> code</span><br><span class="line">$ git <span class="built_in">clone</span> &lt;&lt;iwork项目的SSH或HTTPS&gt;&gt;</span><br></pre></td></tr></table></figure></li><li>cd到[/code/iwork]下，输入sudo git status查看状态<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> iwork</span><br></pre></td></tr></table></figure></li><li>在本地文件夹里增加文件，然后输入sudo git add &lt;文件名.md&gt;或sudo git add .此时文件保存到git的index中，但是还没有同步到远程上。此时sudo git status查看一下状态，会发现新文件但没有commit。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git add .</span><br></pre></td></tr></table></figure></li><li>输入sudo git commit  -m “the message you want when commit”，可以sudo git status查看一下状态，文件已经commit <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>输入 git push 后github上远程可见 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure></li></ol><h3 id="Mac查看IP地址和MAC"><a href="#Mac查看IP地址和MAC" class="headerlink" title="Mac查看IP地址和MAC"></a>Mac查看IP地址和MAC</h3><ol><li>终端输入ifconfig然后回车   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>其中“eth0”表示以太网网卡，“lo0”表示环回地址。下图的以太网网卡IP地址是“192.168.239.141”，MAC地址是38:0c:29:26:bc:07”</li></ol><p><img alt data-src="/Users/hamster/Desktop/Life/github/iBlog/iBlog/source/_posts/images/20191113_1.jpg" class="lazyload"></p><h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><h4 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h4>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> debug </tag>
             
         </tags>
       
