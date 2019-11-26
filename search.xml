@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>DB2</title>
+      <link href="/2019/11/26/DB2/"/>
+      <url>/2019/11/26/DB2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DB2基本使用"><a href="#DB2基本使用" class="headerlink" title="DB2基本使用"></a>DB2基本使用</h1><h1 id="DB2常用命令"><a href="#DB2常用命令" class="headerlink" title="DB2常用命令"></a>DB2常用命令</h1><h1 id="DB2管理电子书，实验三-十"><a href="#DB2管理电子书，实验三-十" class="headerlink" title="DB2管理电子书，实验三-十"></a>DB2管理电子书，实验三-十</h1><h2 id="Unit-3"><a href="#Unit-3" class="headerlink" title="Unit 3"></a>Unit 3</h2><blockquote><p>实验原理介绍</p></blockquote><h3 id="Task-1"><a href="#Task-1" class="headerlink" title="Task 1"></a>Task 1</h3><h3 id="Task-2"><a href="#Task-2" class="headerlink" title="Task 2"></a>Task 2</h3><p>参考链接：<a href="https://www.tutorialspoint.com/db2/index.htm" target="_blank" rel="noopener">DB2英文教程</a></p><h1 id="DB2应用开发"><a href="#DB2应用开发" class="headerlink" title="DB2应用开发"></a>DB2应用开发</h1><h1 id="期末小论文"><a href="#期末小论文" class="headerlink" title="期末小论文"></a>期末小论文</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DB2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络实验报告</title>
       <link href="/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/"/>
       <url>/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/</url>
@@ -21,31 +46,6 @@
         <tags>
             
             <tag> 计算机网络实验报告 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>DB2</title>
-      <link href="/2019/11/26/DB2/"/>
-      <url>/2019/11/26/DB2/</url>
-      
-        <content type="html"><![CDATA[<h1 id="DB2基本使用"><a href="#DB2基本使用" class="headerlink" title="DB2基本使用"></a>DB2基本使用</h1><h1 id="DB2常用命令"><a href="#DB2常用命令" class="headerlink" title="DB2常用命令"></a>DB2常用命令</h1><h1 id="DB2管理电子书，实验三-十"><a href="#DB2管理电子书，实验三-十" class="headerlink" title="DB2管理电子书，实验三-十"></a>DB2管理电子书，实验三-十</h1><h2 id="Unit-3"><a href="#Unit-3" class="headerlink" title="Unit 3"></a>Unit 3</h2><blockquote><p>实验原理介绍</p></blockquote><h3 id="Task-1"><a href="#Task-1" class="headerlink" title="Task 1"></a>Task 1</h3><h3 id="Task-2"><a href="#Task-2" class="headerlink" title="Task 2"></a>Task 2</h3><p>参考链接：<a href="https://www.tutorialspoint.com/db2/index.htm" target="_blank" rel="noopener">DB2英文教程</a></p><h1 id="DB2y应用开发"><a href="#DB2y应用开发" class="headerlink" title="DB2y应用开发"></a>DB2y应用开发</h1><h1 id="期末小论文"><a href="#期末小论文" class="headerlink" title="期末小论文"></a>期末小论文</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> DB2 </tag>
             
         </tags>
       
@@ -104,31 +104,6 @@
     
     
     <entry>
-      <title>开发备忘录</title>
-      <link href="/2019/11/12/%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-      <url>/2019/11/12/%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98%E5%BD%95/</url>
-      
-        <content type="html"><![CDATA[<p>[TOC]</p><h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><h3 id="git与github"><a href="#git与github" class="headerlink" title="git与github"></a>git与github</h3><p>参考视频：<a href="https://www.bilibili.com/video/av55780016?p=3" target="_blank" rel="noopener">bilibili：1小时玩转 Git/Github</a></p><h4 id="保存到远程仓库"><a href="#保存到远程仓库" class="headerlink" title="保存到远程仓库"></a>保存到远程仓库</h4><ol><li>新建一个仓库后，在电脑创建一个空文件[如/code]，然后cd到该文件，终端里输入, <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> code</span><br><span class="line">$ git <span class="built_in">clone</span> &lt;&lt;iwork项目的SSH或HTTPS&gt;&gt;</span><br></pre></td></tr></table></figure></li><li>cd到[/code/iwork]下，输入sudo git status查看状态<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> iwork</span><br></pre></td></tr></table></figure></li><li>在本地文件夹里增加文件，然后输入sudo git add &lt;文件名.md&gt;或sudo git add .此时文件保存到git的index中，但是还没有同步到远程上。此时sudo git status查看一下状态，会发现新文件但没有commit。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git add .</span><br></pre></td></tr></table></figure></li><li>输入sudo git commit  -m “the message you want when commit”，可以sudo git status查看一下状态，文件已经commit <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>输入 git push 后github上远程可见 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure></li></ol><h3 id="Mac查看IP地址和MAC"><a href="#Mac查看IP地址和MAC" class="headerlink" title="Mac查看IP地址和MAC"></a>Mac查看IP地址和MAC</h3><ol><li>终端输入ifconfig然后回车   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>其中“eth0”表示以太网网卡，“lo0”表示环回地址。下图的以太网网卡IP地址是“192.168.239.141”，MAC地址是38:0c:29:26:bc:07”</li></ol><p><img alt data-src="/Users/hamster/Desktop/Life/github/iBlog/iBlog/source/_posts/images/20191113_1.jpg" class="lazyload"></p><h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><h4 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h4>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> debug </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ebook微服务学习笔记</title>
       <link href="/2019/11/12/ebook%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"/>
       <url>/2019/11/12/ebook%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</url>
@@ -146,6 +121,31 @@
         <tags>
             
             <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开发备忘录</title>
+      <link href="/2019/11/12/%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+      <url>/2019/11/12/%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><h3 id="git与github"><a href="#git与github" class="headerlink" title="git与github"></a>git与github</h3><p>参考视频：<a href="https://www.bilibili.com/video/av55780016?p=3" target="_blank" rel="noopener">bilibili：1小时玩转 Git/Github</a></p><h4 id="保存到远程仓库"><a href="#保存到远程仓库" class="headerlink" title="保存到远程仓库"></a>保存到远程仓库</h4><ol><li>新建一个仓库后，在电脑创建一个空文件[如/code]，然后cd到该文件，终端里输入, <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> code</span><br><span class="line">$ git <span class="built_in">clone</span> &lt;&lt;iwork项目的SSH或HTTPS&gt;&gt;</span><br></pre></td></tr></table></figure></li><li>cd到[/code/iwork]下，输入sudo git status查看状态<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> iwork</span><br></pre></td></tr></table></figure></li><li>在本地文件夹里增加文件，然后输入sudo git add &lt;文件名.md&gt;或sudo git add .此时文件保存到git的index中，但是还没有同步到远程上。此时sudo git status查看一下状态，会发现新文件但没有commit。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git add .</span><br></pre></td></tr></table></figure></li><li>输入sudo git commit  -m “the message you want when commit”，可以sudo git status查看一下状态，文件已经commit <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>输入 git push 后github上远程可见 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure></li></ol><h3 id="Mac查看IP地址和MAC"><a href="#Mac查看IP地址和MAC" class="headerlink" title="Mac查看IP地址和MAC"></a>Mac查看IP地址和MAC</h3><ol><li>终端输入ifconfig然后回车   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo git commit  -m “the message you want when commit”</span><br></pre></td></tr></table></figure></li><li>其中“eth0”表示以太网网卡，“lo0”表示环回地址。下图的以太网网卡IP地址是“192.168.239.141”，MAC地址是38:0c:29:26:bc:07”</li></ol><p><img alt data-src="/Users/hamster/Desktop/Life/github/iBlog/iBlog/source/_posts/images/20191113_1.jpg" class="lazyload"></p><h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><h4 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> debug </tag>
             
         </tags>
       
@@ -229,31 +229,6 @@
     
     
     <entry>
-      <title>优秀的工具、资源等</title>
-      <link href="/2019/11/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>/2019/11/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p>如果是Mac的话强烈推荐一下</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 记录 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 记录 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>编译原理学习笔记</title>
       <link href="/2019/11/10/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2019/11/10/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
@@ -271,6 +246,31 @@
         <tags>
             
             <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>优秀的工具、资源等</title>
+      <link href="/2019/11/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2019/11/10/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p>如果是Mac的话强烈推荐一下</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
