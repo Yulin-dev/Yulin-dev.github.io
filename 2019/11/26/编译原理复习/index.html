@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="pale night"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>编译原理PPT复习笔记 | 微木斋</title><meta name="description" content="编译原理PPT复习笔记"><meta name="keywords" content="编译原理PPT复习笔记"><meta name="author" content="不夜侯"><meta name="copyright" content="不夜侯"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="编译原理PPT复习笔记"><meta name="twitter:description" content="编译原理PPT复习笔记"><meta name="twitter:image" content="https://w.wallhaven.cc/full/r2/wallhaven-r2e5lq.jpg"><meta property="og:type" content="article"><meta property="og:title" content="编译原理PPT复习笔记"><meta property="og:url" content="http://yoursite.com/2019/11/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/"><meta property="og:site_name" content="微木斋"><meta property="og:description" content="编译原理PPT复习笔记"><meta property="og:image" content="https://w.wallhaven.cc/full/r2/wallhaven-r2e5lq.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="http://yoursite.com/2019/11/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/"><link rel="prev" title="文本编辑器使用手册" href="http://yoursite.com/2019/11/26/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/"><link rel="next" title="爬虫" href="http://yoursite.com/2019/11/26/%E7%88%AC%E8%99%AB/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: undefined,
+  medium_zoom: 'true',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"}
+  
+}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">微木斋</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-photo"></i><span> Photo</span></a></li></ul></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">25</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">22</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">16</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-photo"></i><span> Photo</span></a></li></ul></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#12-30复习"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">12.30复习</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#绪论"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">绪论</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#高级语言"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">高级语言</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#一、程序设计语言的定义"><span class="toc_mobile_items-number">3.1.</span> <span class="toc_mobile_items-text">一、程序设计语言的定义</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#二、程序设计语言的内涵-语法、语义、语用"><span class="toc_mobile_items-number">3.2.</span> <span class="toc_mobile_items-text">二、程序设计语言的内涵[语法、语义、语用]</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#三、程序语言的功能"><span class="toc_mobile_items-number">3.3.</span> <span class="toc_mobile_items-text">三、程序语言的功能</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#四、高级语言的一般特性"><span class="toc_mobile_items-number">3.4.</span> <span class="toc_mobile_items-text">四、高级语言的一般特性</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#语法描述"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">语法描述</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#一、概述"><span class="toc_mobile_items-number">4.1.</span> <span class="toc_mobile_items-text">一、概述</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#二、形式语言与自动机理论"><span class="toc_mobile_items-number">4.2.</span> <span class="toc_mobile_items-text">二、形式语言与自动机理论</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#三、文法的形式定义"><span class="toc_mobile_items-number">4.3.</span> <span class="toc_mobile_items-text">三、文法的形式定义 !!!</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#四、符号的约定"><span class="toc_mobile_items-number">4.4.</span> <span class="toc_mobile_items-text">四、符号的约定 !!!</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#五、如何由文法产生句子"><span class="toc_mobile_items-number">4.5.</span> <span class="toc_mobile_items-text">五、如何由文法产生句子</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#六、Chomsky文法体系"><span class="toc_mobile_items-number">4.6.</span> <span class="toc_mobile_items-text">六、Chomsky文法体系</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#七、语法分析树和文法二义性"><span class="toc_mobile_items-number">4.7.</span> <span class="toc_mobile_items-text">七、语法分析树和文法二义性</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#词法分析"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">词法分析</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#一、对于词法分析器的要求"><span class="toc_mobile_items-number">5.1.</span> <span class="toc_mobile_items-text">一、对于词法分析器的要求</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#二、词法分析器的设计"><span class="toc_mobile_items-number">5.2.</span> <span class="toc_mobile_items-text">二、词法分析器的设计</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#三、正规表达式与有限⾃动机"><span class="toc_mobile_items-number">5.3.</span> <span class="toc_mobile_items-text">三、正规表达式与有限⾃动机</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#四、词法分析器的⾃动⽣成"><span class="toc_mobile_items-number">5.4.</span> <span class="toc_mobile_items-text">四、词法分析器的⾃动⽣成</span></a></li></ol></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#12-30复习"><span class="toc-number">1.</span> <span class="toc-text">12.30复习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绪论"><span class="toc-number">2.</span> <span class="toc-text">绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高级语言"><span class="toc-number">3.</span> <span class="toc-text">高级语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、程序设计语言的定义"><span class="toc-number">3.1.</span> <span class="toc-text">一、程序设计语言的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、程序设计语言的内涵-语法、语义、语用"><span class="toc-number">3.2.</span> <span class="toc-text">二、程序设计语言的内涵[语法、语义、语用]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、程序语言的功能"><span class="toc-number">3.3.</span> <span class="toc-text">三、程序语言的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、高级语言的一般特性"><span class="toc-number">3.4.</span> <span class="toc-text">四、高级语言的一般特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#语法描述"><span class="toc-number">4.</span> <span class="toc-text">语法描述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">4.1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、形式语言与自动机理论"><span class="toc-number">4.2.</span> <span class="toc-text">二、形式语言与自动机理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、文法的形式定义"><span class="toc-number">4.3.</span> <span class="toc-text">三、文法的形式定义 !!!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、符号的约定"><span class="toc-number">4.4.</span> <span class="toc-text">四、符号的约定 !!!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、如何由文法产生句子"><span class="toc-number">4.5.</span> <span class="toc-text">五、如何由文法产生句子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、Chomsky文法体系"><span class="toc-number">4.6.</span> <span class="toc-text">六、Chomsky文法体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、语法分析树和文法二义性"><span class="toc-number">4.7.</span> <span class="toc-text">七、语法分析树和文法二义性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#词法分析"><span class="toc-number">5.</span> <span class="toc-text">词法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、对于词法分析器的要求"><span class="toc-number">5.1.</span> <span class="toc-text">一、对于词法分析器的要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、词法分析器的设计"><span class="toc-number">5.2.</span> <span class="toc-text">二、词法分析器的设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、正规表达式与有限⾃动机"><span class="toc-number">5.3.</span> <span class="toc-text">三、正规表达式与有限⾃动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、词法分析器的⾃动⽣成"><span class="toc-number">5.4.</span> <span class="toc-text">四、词法分析器的⾃动⽣成</span></a></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://w.wallhaven.cc/full/kw/wallhaven-kw2727.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">编译原理PPT复习笔记</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-11-26<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-31</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">3.5k</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 10 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="12-30复习"><a href="#12-30复习" class="headerlink" title="12.30复习"></a>12.30复习</h1><p>!! 难点</p>
+<p>@ 考题</p>
+<p>!!! 重点</p>
+<p>!? 疑惑</p>
+<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><ol>
+<li><p>解释、翻译</p>
+</li>
+<li><p>解释（执行结果）、编译（产生目标代码）</p>
+</li>
+<li><p>发展：自然语言结构、有穷自动机和形式语言</p>
+</li>
+<li><p>编译过程的五个基本阶段：词法分析、语法分析、语义分析中间代码生成、优化、目标代码生成</p>
+</li>
+<li><p>词法分析（扫描程序）：</p>
+<ul>
+<li><p>源程序中的字符流-&gt;内部形式属性字Token（识别出标识符、关键字、常量、界限符）</p>
+</li>
+<li><p>工具：<code>正规式</code>和有限自动机</p>
+</li>
+<li><p>方法：状态图、DFA、NFA</p>
+</li>
+<li><p>词法分析示例；</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="6">
+<li><p>语法分析（识别程序）：</p>
+<ul>
+<li>词法分析程序识别出并转换的符号-&gt;语法分析树或其它中间表示（识别出短语、子句、语句、程序段、程序）</li>
+<li>语法规则通常用<code>上下文无关文法</code>描述</li>
+<li>方法：递归子程序法、分析法、算符优先分析法</li>
+<li>语法分析示例</li>
+</ul>
+</li>
+<li><p>语义分析和中间代码生成</p>
+<ul>
+<li><p>语义分析：对语法分析树或其他内部中间表示进行静态语义检查，主要任务是进行==类型审查==</p>
+</li>
+<li><p>语义分析示例</p>
+</li>
+<li><p>中间代码生成：输入句子-&gt;输出中间代码序列（四元式、三元式和逆波兰式等）</p>
+</li>
+<li><p>中间代码生成的方法：语义子程序、DAG图（有向无环图）、语法制导翻译</p>
+</li>
+<li><p>四元式的结构：（算符，运算对象1，运算对象2，结果）</p>
+</li>
+<li><p>例题：执行完103后没有跳出 </p>
+<img style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaelp57y4qj30zy0d40vm.jpg" class="lazyload">
+</li>
+</ul>
+</li>
+<li><p>优化</p>
+<ul>
+<li>加工中间代码-&gt;高效（时间和空间）代码</li>
+<li>依循的原则是程序的等价变换规则</li>
+<li>方法：公共子表达式的提取、循环优化、删除无用代码等。</li>
+<li>优化示例</li>
+</ul>
+</li>
+<li><p>目标代码生成</p>
+<ul>
+<li>中间代码-&gt;特定机器上的低级语言代码</li>
+</ul>
+</li>
+<li><p>编译程序的结构</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaelyskbh1j311y0pqjwm.jpg" class="lazyload">
+</li>
+<li><p>表格与表格管理：各种表格，其中符号表最重要，记录标识符的名字、类型、作用域、分配存储等信息</p>
+</li>
+<li><p>出错处理：</p>
+<ul>
+<li>语法错误：词法分析和语法分析检测出，如保留字拼写错误、括号不配对</li>
+<li>语义错误：编译或运行时检测出，如<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaem4gumfxj30x40bewkb.jpg" class="lazyload"></li>
+<li>出错处理最好：全、准、局部化</li>
+</ul>
+</li>
+<li><p>编译阶段的组合：前端（源语言，词分到优化）和后端（目标代码）</p>
+</li>
+<li><p>遍：每遍记录于外存，多遍编译</p>
+<img style="zoom:60" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaembml5ghj30lm0q6wi4.jpg" class="lazyload">
+</li>
+<li><p>编译程序的生成</p>
+<ul>
+<li>编译程序实现语言:机器、汇编、高级</li>
+<li>生成技术：自编译、交叉编译、自动编译</li>
+</ul>
+</li>
+<li><p><code>T形图!!</code></p>
+<ul>
+<li><p>T形图</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaemez30r4j30xe0ga40s.jpg" class="lazyload">
+</li>
+<li><p>示例1：用 L1语言编写另一种高级语言L2的==编译程序==</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaetz3o4msj30zs0q0dmc.jpg" class="lazyload">
+</li>
+<li><p>示例2：<code>@</code>编译程序的移植，先用L语言写一个A机器上的B机器语言编译程序，然后用这个编译程序编译原来那个源程序，这样就能得到在B机器上运行的产生B机器语言的编译程序。</p>
+<img style="zoom:20" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaeu4ris9bj30rg0fmgma.jpg" class="lazyload">
+</li>
+<li><p>自编译：某种高级语言书写==自己==的编译程序称为自编译。</p>
+</li>
+<li><p>交叉编译：用x机器上的编译程序产生可在y机器上运行的目标代码</p>
+<p>称为交叉编译。</p>
+</li>
+<li><p>自动编译：自动生成编译程序的软件工具，如和LEX和YACC</p>
+</li>
+</ul>
+</li>
+<li><p>编译系统是一系统软件</p>
+</li>
+</ol>
+<h1 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h1><h2 id="一、程序设计语言的定义"><a href="#一、程序设计语言的定义" class="headerlink" title="一、程序设计语言的定义"></a>一、程序设计语言的定义</h2><ol>
+<li>是否可直接执行：不可，需汇编，连接 高级：需编译/解释，连接</li>
+</ol>
+<h2 id="二、程序设计语言的内涵-语法、语义、语用"><a href="#二、程序设计语言的内涵-语法、语义、语用" class="headerlink" title="二、程序设计语言的内涵[语法、语义、语用]"></a>二、程序设计语言的内涵[语法、语义、语用]</h2><ol>
+<li><p>语法</p>
+<ul>
+<li><p>语言的语法是指可以形成和产生程序的一组规则。包括==词法规则和语法规则==</p>
+</li>
+<li><p>词法规则和语法规则的语法描述方式都可以用：自然语言、语法图、BNF(巴科斯范式)范式、或文法等描述。</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaeuxwdxk7j30x60j8gtc.jpg" class="lazyload">
+</li>
+</ul>
+</li>
+<li><p>语义：定义它的单词符号和语法单位的意义</p>
+<ul>
+<li>语义是指这样的一组规则，使用它可以定义一个程序的意义。</li>
+<li>采用的方法为：==基于属性文法的语法制导翻译==方法。</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、程序语言的功能"><a href="#三、程序语言的功能" class="headerlink" title="三、程序语言的功能"></a>三、程序语言的功能</h2><ol>
+<li>一个程序语言的基本功能是描述数据和对数据的运算，数据的处理过程</li>
+</ol>
+<h2 id="四、高级语言的一般特性"><a href="#四、高级语言的一般特性" class="headerlink" title="四、高级语言的一般特性"></a>四、高级语言的一般特性</h2><ol>
+<li><p>类型：强制式(过程式语言)、应用式(函数式语言)、基于规则(条件→动作)、面向对象(封装/继承/多态)</p>
+</li>
+<li><p>程序结构：单层、多层结构</p>
+</li>
+<li><p>数据类型与操作：初等类型（整型、浮点型、字符型）、复合类型（结构、数组）到抽象数据类型（类，信息隐蔽和数据封装，使用与实现相分离）</p>
+</li>
+<li><p>语句与控制结构：表达式、语句[简单语句（说明语句、赋值语句、控制语句、输入输出语句、过程调用语句），复合语句]</p>
+</li>
+<li><p>表达式的形成规则</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaevj7zrtoj30wu0920wp.jpg" class="lazyload">
+</li>
+<li><p>语句</p>
+<ul>
+<li>赋值语句：对赋值号右边的B我们需要的是它的值；对于左边的A我们 需要的是它们的所代表的存储单元（的地址）；一个名字所代表 的那个存储单元（地址）称为该名字的左值；把一个名字的值称为该名字的右值。</li>
+<li>控制语句：无条件转移语句、条件语句、循环语句、过程调用语句、返回语句</li>
+<li>输入输出语句</li>
+</ul>
+</li>
+</ol>
+<h1 id="语法描述"><a href="#语法描述" class="headerlink" title="语法描述"></a>语法描述</h1><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ol>
+<li>编译原理=形式语言理论+编译技术，语言的语法定义是非常重要的</li>
+<li><code>形式语言</code>是某个字母表上的字符串的集合，有一定的描述范围。</li>
+<li>由文法产生的符号串构成语言 = 由自动机识别的符号串构成语言</li>
+</ol>
+<h2 id="二、形式语言与自动机理论"><a href="#二、形式语言与自动机理论" class="headerlink" title="二、形式语言与自动机理论"></a>二、形式语言与自动机理论</h2><ol>
+<li>文法和自动机分别从==生成和识别==的角度去表达语言， 而且证明了文法与自动机的等价性，形式语言真正诞生</li>
+</ol>
+<h2 id="三、文法的形式定义"><a href="#三、文法的形式定义" class="headerlink" title="三、文法的形式定义 !!!"></a>三、文法的形式定义 <code>!!!</code></h2><p>$$<br>G = (V_T , V_N , P , S )<br>$$</p>
+<ul>
+<li><p>G：表示文法，文法由==四元组==定义</p>
+</li>
+<li><p><strong>终结符集合和非终结符集合都是字母表</strong></p>
+</li>
+<li><p><strong>终结符集合与非终结符集合是不相交的</strong> -&gt; $V_T∩V_N=Φ$ </p>
+</li>
+<li><p><strong>终结符集合与非终结符集合的并集是文法符号集</strong> -&gt; $V_T∪V_N$：文法符号集</p>
+</li>
+<li><p>$V_T$：</p>
+<img style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cwiac7sij30y807amzp.jpg" class="lazyload">
+</li>
+<li><p>$V_N$：<strong>因为从它们可以推出其他的语法成分，所以被称为非终结符</strong></p>
+<img style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cwjbrw6nj30wi08kmzw.jpg" class="lazyload">
+</li>
+<li><p>P：产生式集合，注意左部和右部的取值，左部是正闭包，右部是克林闭包</p>
+<p>例： P = &lt;句子&gt; → &lt;名词短语&gt;&lt;动词短语&gt;, &lt;名词短语&gt; → &lt;形容词&gt;&lt;名词短语&gt;</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cwq1999lj30x60aqwie.jpg" class="lazyload">
+</li>
+<li><p>S：开始符号</p>
+<p>$S∈V_N$，开始符号(start symbol)表示的是==该文法中最大的语法成分==。属于==非终结符号==，至少在某个产生式的左部出现一次。例：S = &lt;句子&gt;</p>
+<img style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cwvvddqrj30yg050gn9.jpg" class="lazyload">
+
+<p>例：</p>
+<img style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cwwi6n07j30y408kgok.jpg" class="lazyload">
+
+</li>
+</ul>
+<h2 id="四、符号的约定"><a href="#四、符号的约定" class="headerlink" title="四、符号的约定 !!!"></a>四、符号的约定 <code>!!!</code></h2><ul>
+<li><p>终结符，非终结符和其他</p>
+<center class="half">
+  <img style="zoom:20%" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cx6fd6qwj30xg0cuwkb.jpg" class="lazyload"><img style="zoom:20%" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cx7ceu2nj30yw0ck0zh.jpg" class="lazyload"><img style="zoom:20%" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cxbpc4g8j30ny0aqdqa.jpg" class="lazyload">
+</center>  
+</li>
+<li><p>子符号串</p>
+</li>
+<li><p>符号串的前缀与后缀</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaew79iaa9j315e0cy42z.jpg" class="lazyload">
+</li>
+<li><p>符号串集合</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaew8m0v1pj316c05o40t.jpg" class="lazyload">
+</li>
+<li><p>空符号串ε，{ε}</p>
+</li>
+<li><p>（连接）积，n次（连接）积，闭包，正闭包</p>
+<center class="half">
+  <img style="zoom:20%" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaewml7va5j30ws0jqjw1.jpg" class="lazyload"><img style="zoom:20%" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaewg720y4j317m0f4ae6.jpg" class="lazyload">
+</center>  
+</li>
+<li><p>候选式</p>
+<img style="zoom:40" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaewcdflkpj3154066dhn.jpg" class="lazyload">
+</li>
+<li><p>文法简化的约定</p>
+<img style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaewxqmy6nj30xu0ieq72.jpg" class="lazyload">
+
+</li>
+</ul>
+<h2 id="五、如何由文法产生句子"><a href="#五、如何由文法产生句子" class="headerlink" title="五、如何由文法产生句子"></a>五、如何由文法产生句子</h2><ol>
+<li><p>基本思想：从识别符号开始，把当前产生的符号串中的<strong>非终结符号</strong>替换为相应产生式右部的<strong>符号串</strong>，直到最终全由终结符号组成。 这种替换过程称为推导或产生句子的过程， 每一步称为<strong>直接推导</strong>或直接产生。</p>
+</li>
+<li><p>归约是推导的逆过程</p>
+</li>
+<li><p>若在推导关系中，每次最先替换最左（右） 的非终结符，则称为最左（右）推导；</p>
+</li>
+<li><p>若在归约过程中，每次最先归约最左（右） 的非终结符，则称为最左（右）归约。</p>
+<p>例题<code>@</code>：</p>
+<img style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaey7y2ov8j31740ok0xc.jpg" class="lazyload">
+</li>
+<li><p>句型、句子和语言</p>
+<ul>
+<li><p>句型：假定G是一个文法，E是它的开始符号，如果E -&gt; α，则称α是文法G的一个句型。</p>
+</li>
+<li><p>句子：仅由==终结符==组成的句型称为句子</p>
+</li>
+<li><p>语言：文法G所产生句子的全体</p>
+</li>
+<li><p>写出某文法描述的语言</p>
+<img alt="image-20191231084450680" style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gafm4ggw2vj317i0metdl.jpg" class="lazyload">
+</li>
+<li><p>写出某语言对应的文法</p>
+<img alt="image-20191231084705150" style="zoom:50" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gafm6vlwitj317m0o610l.jpg" class="lazyload">
+
+<ul>
+<li>同一句型可以有不同的推导序列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="六、Chomsky文法体系"><a href="#六、Chomsky文法体系" class="headerlink" title="六、Chomsky文法体系"></a>六、Chomsky文法体系</h2><ol>
+<li><p>文法的==核心==是产生式的集合，它决定了语言中句子的产生。</p>
+</li>
+<li><p><code>Chomsky文法体系分类</code>：</p>
+<p><strong>0型文法，无限制文法，短语结构文法</strong></p>
+<ul>
+<li>α中至少包含1个非终结符</li>
+</ul>
+<img alt="image-20191127221027086" style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cyc6uglwj31600fe78m.jpg" class="lazyload">
+
+<p><strong>1型文法，上下文有关文法(CSG)</strong></p>
+<ul>
+<li><p>产生式左部符号的个数不能多于右部</p>
+</li>
+<li><p>不包含 $\varepsilon$ 产生式，即产生式<strong>右部是空串的产生式</strong>，因为左部至少包含一个非终结符，左部长度至少为1，如果右部是 $\varepsilon$ ，右部长度为1，与CGS定义不符合。</p>
+</li>
+</ul>
+<img alt="image-20191127221328301" style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cyfbx748j315y0i2afd.jpg" class="lazyload">
+
+<p><strong>2型文法，上下文无关文法(CFG)</strong></p>
+<ul>
+<li>左边是<strong>一个非终结符</strong>，将其替换不需要考虑其上下文</li>
+<li>所举的例子即2型文法</li>
+</ul>
+<img alt="image-20191127221344869" style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cyfm18zwj315w0ig786.jpg" class="lazyload">
+
+<p><strong>3型文法，正规文法，正则文法(RG)</strong></p>
+<ul>
+<li>3型文法分为2种文法</li>
+<li>产生式右部<strong>最多只有一个非终结符</strong>，且只能在一侧</li>
+<li>例子中的两个文法都是指标识符，即一个字母或以字母开头的字母数字串</li>
+<li>程序语言中的多数单词都能用正则文法表示</li>
+</ul>
+<img alt="image-20191127222052426" style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cyn3744ej315u0ian4k.jpg" class="lazyload">
+
+<p><strong>四种文法之间的关系</strong></p>
+<img alt="image-20191127222635614" style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cyszv3q5j31620fi43y.jpg" class="lazyload">
+</li>
+<li><p>文法、形式语言和自动机的对应关系</p>
+<img alt="image-20191231090637721" style="zoom:10" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gafmr7n7dpj31620msada.jpg" class="lazyload">
+</li>
+<li><p>自然语言是上下文有关的，<code>上下文无关文法</code>可以描述多数程序设计语言的语法结构（如算术表达式、语句）</p>
+</li>
+<li><p>基于<code>正规文法</code>讨论词法分析问题，基于<code>上下文无关文法</code>讨论语法分析问题，而其中上下文有关的问题，可通过==表格处理==解决</p>
+</li>
+<li><p>程序语言中,有些语言结构并不是总能用上下文无关文法描述的。</p>
+</li>
+</ol>
+<h2 id="七、语法分析树和文法二义性"><a href="#七、语法分析树和文法二义性" class="headerlink" title="七、语法分析树和文法二义性"></a>七、语法分析树和文法二义性</h2><ol>
+<li><p><strong>上下文无关文法的分析树</strong></p>
+<p>程序语言中的多数单词都能用正则文法表示，但正则文法生成能力有限，句子构造则需要用上下文无关文法进行描述。</p>
+</li>
+<li><p><strong>上下文无关文法分析树定义</strong></p>
+<p>例：图中跟节点表示的是对第三个式子的应用</p>
+<p>树的叶结点符号所组成的符号串W就是<strong>所给句型</strong>；若w中仅含 终结符号，则w为文法G所产生的<strong>句子</strong></p>
+<img alt="image-20191127222833264" style="zoom:39" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cyv3e5bpj315y0hwq9o.jpg" class="lazyload">
+</li>
+<li><p><strong>分析树是推导的图形化表示</strong></p>
+<p>推导过程中产生许多<code>句型</code>,最终推导出分析树的边缘</p>
+<img alt="image-20191127223759244" style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cz4u6zi1j315q0fktds.jpg" class="lazyload">
+</li>
+<li><p><strong>句型的短语</strong></p>
+<p>给定一个句型，其分析树中的每一颗子树的边缘称为该句型的一个<code>短语</code>。</p>
+<p>如果子树只有父子两代节点，那么这课子树的边缘称为该句型的一个<code>直接短语</code>。</p>
+<p><strong>==直接短语==一定是==产生式的右部==，但产生式的右部不一定是给定句型的直接短语，但可能是其他句型的直接短语</strong></p>
+<p><img alt="image-20191127224229562" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cz9jcs2rj316609077h.jpg" class="lazyload"></p>
+<p>例：人民、生活、水平是该句子的直接短语，而高人、民生、活水虽然也是第5个产生式的右部，但是在这棵分析树中，它们不是直接短语。</p>
+<img alt="image-20191127225119891" style="zoom:50%;" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cziqh449j30o40bigub.jpg" class="lazyload">
+</li>
+<li><p>一个句型是否只有唯一的一个最左(最右)推导呢?</p>
+<p>否！</p>
+<p>一个句型是否只对应唯一的一棵语法树呢?</p>
+<p>否！ ，因为不同的最右（左）推导对应不同的语法树。</p>
+<p>一个句型可以有不同的最左(最右)推导，对应的语法树也不同</p>
+</li>
+<li><p>二义性文法</p>
+<p>如果<strong>一个文法可以为某个句子生成多棵分析树</strong>，则称这个文法是二义性的。</p>
+<p>下面这个例子产生二义的原因是else可以跟第一个if条件语句和第二个if条件语句相配。</p>
+<p><code>消歧规则</code>：每个else和最近的尚未匹配的if进行匹配，所以只有第一个分析树，可通过某些规定将二义文法改造为无二义文法</p>
+<img alt="image-20191127225609332" style="zoom:20" data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g9cznqxtqrj315y0fcadz.jpg" class="lazyload">
+</li>
+<li><p>二义性文法的判定</p>
+<p>对于任意一个上下文无关文法，不存在一个算法，判断它是无二义性的，但能给出一组充分条件，满足这组充分条件的文法是无二义性的。</p>
+</li>
+</ol>
+<ul>
+<li>满足，肯定无二义性</li>
+<li>不满足，也未必就是有二义性的</li>
+</ul>
+<ol start="8">
+<li><p>证明句子是二义性，找个句子然后画出多条语法分析树</p>
+<img alt="image-20191231114350430" style="zoom:30" data-src="https://tva1.sinaimg.cn/large/006tNbRwgy1gafrapr9pzj30g806et95.jpg" class="lazyload">
+
+</li>
+</ol>
+<h1 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h1><h2 id="一、对于词法分析器的要求"><a href="#一、对于词法分析器的要求" class="headerlink" title="一、对于词法分析器的要求"></a>一、对于词法分析器的要求</h2><ol>
+<li><p>字符串的源程序改造成为单词符号串</p>
+</li>
+<li><p>词法分析是编译的==基础==。执⾏词法分析的程序称为词法分析器。</p>
+</li>
+<li><p>词法分析顾名思义就是通过扫描源程序，识别出每一个单词，确定单词类型，然后转化为统一的机内表示——<code>词法单元（token）</code>形式，属性值是标识符号表中的⼊⼝地址</p>
+<p>token：&lt; 种别码，属性值&gt;</p>
+<p>例如if、else对应唯一的表示形式。具体的表示形式如下表所示：</p>
+<img alt="image-20191127170722792" style="zoom:33" data-src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9cpkudcwfj30yc0dkte0.jpg" class="lazyload">
+
+<p>例如有一句代码为：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(value!=<span class="number">100</span>)&#123;num++;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>则经过词法分析后如下所示，其中每句后的&lt;-,-&gt;表示每个单词的含义。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>      &lt; WHILE ,    -  &gt;  <span class="comment">// 关键词，一词一码</span></span><br><span class="line">(          &lt;SLP    ,    -  &gt;  <span class="comment">// 界限符，一词一码</span></span><br><span class="line">value      &lt;IDN    ,  value&gt;  <span class="comment">// 标识符，多词一码，&lt; 种别码，属性值value&gt;</span></span><br><span class="line">!=         &lt;NE     ,    -  &gt;  <span class="comment">// 运算符，一词一码</span></span><br><span class="line"><span class="number">100</span>        &lt;CONST,<span class="number">100</span>&gt; 		  <span class="comment">// 常 量，一型一码</span></span><br><span class="line">)          &lt;SRP,-&gt;            <span class="comment">// 界限符，一词一码</span></span><br><span class="line">&#123;          &lt;LP,-&gt;             <span class="comment">// 界限符，一词一码</span></span><br><span class="line">num        &lt;IDN,num&gt;          <span class="comment">// 标识符，多词一码，&lt; 种别码，属性值value&gt;</span></span><br><span class="line">++         &lt;INC,-&gt;            <span class="comment">// 运算符，一词一码</span></span><br><span class="line">;          &lt;SEMI,-&gt;           <span class="comment">// 界限符，一词一码</span></span><br><span class="line">&#125;          &lt;RP,-&gt;             <span class="comment">// 界限符，一词一码</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li><h2 id="二、词法分析器的设计"><a href="#二、词法分析器的设计" class="headerlink" title="二、词法分析器的设计"></a>二、词法分析器的设计</h2></li>
+</ol>
+<h2 id="三、正规表达式与有限⾃动机"><a href="#三、正规表达式与有限⾃动机" class="headerlink" title="三、正规表达式与有限⾃动机"></a>三、正规表达式与有限⾃动机</h2><h2 id="四、词法分析器的⾃动⽣成"><a href="#四、词法分析器的⾃动⽣成" class="headerlink" title="四、词法分析器的⾃动⽣成"></a>四、词法分析器的⾃动⽣成</h2></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">不夜侯</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/11/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/">http://yoursite.com/2019/11/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">微木斋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86PPT%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">编译原理PPT复习笔记    </a></div><div class="post_share"><div class="social-share" data-image="https://w.wallhaven.cc/full/r2/wallhaven-r2e5lq.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/11/26/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/"><img class="prev_cover lazyload" data-src="https://w.wallhaven.cc/full/4x/wallhaven-4xvpqo.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>文本编辑器使用手册</span></div></a></div><div class="next-post pull_right"><a href="/2019/11/26/%E7%88%AC%E8%99%AB/"><img class="next_cover lazyload" data-src="https://w.wallhaven.cc/full/r2/wallhaven-r2e5lq.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>爬虫</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="/js/src/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'ezY25SXgzlqMB8IIJlycOSGj-gzGzoHsz',
+  appKey:'5F5o2QbGSOEbhc0qnyl7LGjS',
+  placeholder:'ヾﾉ≧∀≦)o来啊，快活啊!',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-CN',
+  recordIP: true
+});</script></div></div></div><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 By 不夜侯</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><img id="go-up" src="img/scroll.png" title="回到顶部" aria-hidden="true"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = true; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/click_heart.js"></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":200,"height":400,"hOffset":40,"vOffset":-80},"mobile":{"show":true},"log":false});</script></body></html>
